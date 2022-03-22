@@ -1,38 +1,50 @@
-.App {
-  text-align: center;
+.Playlist {
+	width: 90%;
+	display: flex;
+	margin: 20px auto;
+	align-items: center;
+	justify-content: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Image {
+	margin: auto 25px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+img {
+	width: 300px;
+	height: 300px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.Playlist-info {
+	width: 90%;
 }
 
-.App-link {
-  color: #61dafb;
+.title-song {
+	font-size: 50px;
+	margin: 0;
+	font-weight: bold;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.artist {
+	margin: 0 0 20px 0;
+	font-weight: 500;
+}
+
+.btn-select {
+	font-family: verdana;
+	color: #fcfcfc !important;
+	font-size: 12px;
+	text-shadow: 0px 0px 0px #6e6e6e;
+	box-shadow: 0px 0px 0px #c3e7ff;
+	padding: 8px 23px;
+	border-radius: 5px;
+	border: 0px solid #000000;
+	background: #4dc455;
+	background: linear-gradient(to top, #4dc455, #349e3c);
+}
+.btn-select:hover {
+	color: #0c7d07 !important;
+	background: #cfcfcf;
+	background: linear-gradient(to top, #cfcfcf, #eeeeee);
+	transition: all 0.4s;
 }
