@@ -1,6 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
 import Data from './data/data';
+import Playlist from './components/playlist/index';
 
 function App() {
 
@@ -12,15 +12,12 @@ function App() {
 
   return (
     <div className="Playlist">
-      <div className='Image'>
-      <img src={images}/>
-      </div>
-      <div className='Playlist-info'>
-        <h4>Album</h4>
-        <p className='title-song'>{titleSong}</p>
-        <p className='artist'>{artist}</p>
-        <a href={url} target='_blank'><button className='btn-select'>Select</button></a> 
-      </div>
+      <Playlist
+      images={images}
+      titleSong={titleSong}
+      artist={artist}
+      url={url}
+      />
     </div>
   );
 }
