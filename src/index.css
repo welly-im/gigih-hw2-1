@@ -10,17 +10,21 @@ body {
 		sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	background: rgb(108, 5, 72);
-	background: linear-gradient(
-		180deg,
-		rgba(108, 5, 72, 0.8491771708683473) 22%,
-		rgba(122, 21, 84, 0.48503151260504207) 63%,
-		rgba(178, 182, 1, 1) 87%
-	);
+	background: rgb(32,32,32);
+	background: linear-gradient(180deg, rgba(32,32,32,1) 16%, rgba(11,11,11,1) 61%, rgba(0,0,0,1) 93%);
 	background-repeat: no-repeat;
+	background-attachment: fixed;
 }
 
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
 		monospace;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	margin: 25px 0 10px 0;
+}
+
+img{
+    width: 100%;
 }

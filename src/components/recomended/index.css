@@ -1,0 +1,28 @@
+a{
+    text-decoration: none;
+}
+
+.music-card{
+    width: 160px;
+    height: 240px;
+    padding: 15px;
+    display: block;
+    background-color: #333;
+    border-radius: 5px;
+    flex-direction: column;
+    margin: 10px 15px;
+    color: #fff;
+}
+.music-card:hover{
+    background-color: rgb(70, 70, 70);
+    transition: all 0.5s;
+}
+
+.music-title{
+    margin: 0;
+    font-weight: 700;
+}
+
+.music-artist{
+    margin: 5px 0 0 0;
+}

@@ -1,30 +1,45 @@
+tbody{
+	width: 100%;
+}
+
 .Playlist-component {
-	width: 90%;
+	width: 100%;
 	display: flex;
-	margin: 20px auto;
+	margin: 0px auto;
 	align-items: center;
 	justify-content: center;
 }
 
+.Playlist-component:hover {
+	cursor: pointer;
+	background-color: #2e2e2e;
+	border-radius: 5px;
+	transition: all 0.5s;
+}
 
+.list-music{
+	margin: 0 auto;
+    width: 100%;
+    padding: 5px 10px;
+}
 
 .Image {
-	margin: auto 25px;
+	width: 120px;
+    height: 120px;
+    display: block;
 }
 
-img {
-	width: 300px;
-	height: 300px;
-}
 
 .Playlist-info {
-	width: 90%;
+	width: 100%;
+	padding-left: 20px;
 }
 
 .title-song {
-	font-size: 50px;
+	font-size: 20px;
 	margin: 0;
 	font-weight: bold;
+	line-height: 1;
 }
 
 .artist {

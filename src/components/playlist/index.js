@@ -2,18 +2,38 @@
 
 import './index.css';
 
-function Playlist({images, titleSong, artist, url}) {
+function Playlist({name, artist, url, images}) {
+
     return(
+        
+        //create a table with 3 columns
+       
+
         <div className='Playlist-component'>
-            <div className='Image'>
+            <table className="list-music">
+                <tbody>
+                    <tr>
+                        <td className='Image'>
+                            <img src={images} alt={name} />
+                        </td>
+                        <td className='Playlist-info'>
+                            <p className='title-song'>{name}</p>
+                            <p  className='artist'>{artist}</p>
+                            <a href={url} target="_blank"><button className='btn-select'>Select</button></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        
+            {/* <div className='Image'>
                 <img src={images} />
             </div>
             <div className='Playlist-info'>
                 <h4>Album</h4>
-                <p className='title-song'>{titleSong}</p>
+                <p className='title-song'>{name}</p>
                 <p className='artist'>{artist}</p>
                 <a href={url} target='_blank'><button className='btn-select'>Select</button></a>
-            </div>
+            </div> */}
         </div>
         
     );
