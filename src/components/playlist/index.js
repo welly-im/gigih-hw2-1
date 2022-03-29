@@ -7,8 +7,6 @@ function Playlist({name, artist, url, images}) {
     return(
         
         //create a table with 3 columns
-       
-
         <div className='Playlist-component'>
             <table className="list-music">
                 <tbody>

@@ -1,0 +1,11 @@
+.search-bar{
+    margin: 0 15px 0 0;
+    height: 20px;
+    width: 20%;
+}
+
+.btn-search{
+    height: 28px;
+    width: 80px;
+    margin: 0 0 0 5px;
+}
