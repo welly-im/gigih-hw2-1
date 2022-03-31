@@ -2,7 +2,6 @@ import { Component } from "react";
 import Playlist from "../playlist";
 import "./index.css";
 
-
 class Search extends Component{
     state = { music:[], keyword:""};
 

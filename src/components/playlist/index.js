@@ -1,12 +1,18 @@
-//create react functional component
+import { useState } from 'react';
 
 import './index.css';
 
 function Playlist({name, artist, url, images}) {
 
+    //create a button select when click change to deselect
+    const [selected, setSelected] = useState(false);
+
+    //create a button select when click change to deselect
+    const handleClick = () => {
+        setSelected(!selected);
+    }
+
     return(
-        
-        //create a table with 3 columns
         <div className='Playlist-component'>
             <table className="list-music">
                 <tbody>
@@ -17,21 +23,11 @@ function Playlist({name, artist, url, images}) {
                         <td className='Playlist-info'>
                             <p className='title-song'>{name}</p>
                             <p  className='artist'>{artist}</p>
-                            <a href={url} target="_blank"><button className='btn-select'>Select</button></a>
+                            <a href={url} target="_blank" rel='noreferrer'><button className='btn-select' onClick={handleClick}>{selected ? 'Deselect' : 'Select'}</button></a>
                         </td>
                     </tr>
                 </tbody>
             </table>
-        
-            {/* <div className='Image'>
-                <img src={images} />
-            </div>
-            <div className='Playlist-info'>
-                <h4>Album</h4>
-                <p className='title-song'>{name}</p>
-                <p className='artist'>{artist}</p>
-                <a href={url} target='_blank'><button className='btn-select'>Select</button></a>
-            </div> */}
         </div>
         
     );
