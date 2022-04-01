@@ -32,7 +32,9 @@ class Search extends Component{
                         name={item.name} 
                         artist={item.artists[0].name} 
                         url={item.external_urls.spotify} 
-                        images={item.album.images[0].url} />
+                        images={item.album.images[0].url}
+                        uri={item.uri}
+                        song={item} />
                     ))}
                 </div>
             </div>
