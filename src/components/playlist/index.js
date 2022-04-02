@@ -1,69 +1,51 @@
-import { useState } from 'react';
-
 import './index.css';
 
-function Playlist({name, artist, url, images, uri, song}) {
+function Playlist({music, track, setSelectedTrack}) {
 
-    //selectedSong is the song that is selected by the user
-    const [selectedSong, setSelectedSong] = useState({
-        'id': [],
-    'tracks': [],
-    });
+    const handleClickSelectSong = (e) => {
+        const id = e.target.getAttribute('data-uri');
+        const index = track.findIndex((song) => song.uri === id);
+        if (index === -1) {
+            const getDataSongFromId = music.filter((song) => song.uri === id);
+            setSelectedTrack([...track, getDataSongFromId[0]]);
+            //make selected button to deselect button by id
+            e.target.innerText = 'Deselect'; 
+            e.target.className = 'btn-deselect';
+        } else {
+            setSelectedTrack(track.filter(song => song.uri !== id)); //fungsi menghapus data yang sama
+            e.target.innerText = 'Select'; 
+            e.target.className = 'btn-select';
+        }
 
-    const selectSong = (song) => {
-        const tempSong = [...selectedSong.tracks, song];
-        const tempIdSong = [...selectedSong.id, song.uri];
 
-        setSelectedSong({
-            'id': tempIdSong,
-            'tracks': tempSong,
-        });
     };
 
-    const deselectSong = (song) => {
-        const i = selectedSong.id.indexOf(song.uri);
-        const tempSong = selectSong.tracks.slice(0, i).concat(selectSong.tracks.slice(i + 1));
-        const tempIdSong = selectSong.id.slice(0, i).concat(selectSong.id.slice(i + 1));
-        setSelectedSong({
-            'id': tempIdSong,  
-            'tracks': tempSong,
-        });
-    };
-
-
-    console.log(selectedSong);
-    
-    //create a button select when click change to deselect
-    const [selected, setSelected] = useState(false);
-
-    //create a button select when click change to deselect
-    const handleClick = () => {
-            setSelected(!selected);
-            if(!selected){
-                selectSong(song);
-            }else{
-                deselectSong(song);
-            }
-    }
 
     return(
         <>
-            <div className='Playlist-component'>
-                <table className="list-music">
-                    <tbody>
-                        <tr>
-                            <td className='Image'>
-                                <img src={images} alt={name} />
-                            </td>
-                            <td className='Playlist-info'>
-                                <p className='title-song'>{name}</p>
-                                <p  className='artist'>{artist}</p>
-                                <button className='btn-select' onClick={handleClick}>{selected ? 'Deselect' : 'Select'}</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            {
+                music.map(song => (
+                    <div className='Playlist-component' key={song.uri}>
+                    <table className="list-music">
+                        <tbody>
+                            <tr>
+                                <td className='Image'>
+                                    <img src={song.album.images[0].url} alt={song.name} />
+                                </td>
+                                <td className='Playlist-info'>
+                                    <p className='title-song'>{song.name}</p>
+                                    <p  className='artist'>{song.artists[0].name}</p>
+                                    
+                                </td>
+                                <td>
+                                    <button className='btn-select' data-uri={song.uri} onClick={handleClickSelectSong}>Select</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                ))
+            }
         </>
         
         

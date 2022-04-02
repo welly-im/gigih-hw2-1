@@ -11,7 +11,6 @@ tbody{
 }
 
 .Playlist-component:hover {
-	cursor: pointer;
 	background-color: #2e2e2e;
 	border-radius: 5px;
 	transition: all 0.5s;
@@ -24,8 +23,8 @@ tbody{
 }
 
 .Image {
-	width: 120px;
-    height: 120px;
+	width: 50px;
+    height: 50px;
     display: block;
 }
 
@@ -37,7 +36,7 @@ tbody{
 
 .title-song {
 	font-size: 20px;
-	margin: 0;
+	margin: 0 0 5px 0;
 	font-weight: bold;
 	line-height: 1;
 }
@@ -45,6 +44,7 @@ tbody{
 .artist {
 	margin: 0 0 20px 0;
 	font-weight: 500;
+	font-size: 12px;
 }
 
 .btn-select {
@@ -57,11 +57,23 @@ tbody{
 	border-radius: 5px;
 	border: 0px solid #000000;
 	background: #4dc455;
-	background: linear-gradient(to top, #4dc455, #349e3c);
 }
 .btn-select:hover {
-	color: #0c7d07 !important;
-	background: #cfcfcf;
-	background: linear-gradient(to top, #cfcfcf, #eeeeee);
-	transition: all 0.4s;
+	cursor: pointer;
+}
+
+.btn-deselect{
+	font-family: verdana;
+	color: #fcfcfc !important;
+	font-size: 12px;
+	text-shadow: 0px 0px 0px #6e6e6e;
+	box-shadow: 0px 0px 0px #c3e7ff;
+	padding: 8px 23px;
+	border-radius: 5px;
+	border: 0px solid #000000;
+	background: #c44d4d;
+}
+
+.btn-deselect:hover {
+	cursor: pointer;
 }

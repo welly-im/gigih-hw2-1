@@ -2,9 +2,15 @@ a{
     text-decoration: none;
 }
 
+.selected-music{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
 .music-card{
-    width: 160px;
-    height: 240px;
+    width: 120px;
+    height: 185px;
     padding: 15px;
     display: block;
     background-color: #333;
@@ -21,8 +27,10 @@ a{
 .music-title{
     margin: 0;
     font-weight: 700;
+    font-size: 14px;
 }
 
 .music-artist{
     margin: 5px 0 0 0;
+    font-size: 12px;
 }

@@ -1,5 +1,5 @@
 import { Component } from "react";
-import Playlist from "../playlist";
+import Playlist from "../playlist/index";
 import "./index.css";
 
 class Search extends Component{
@@ -26,6 +26,9 @@ class Search extends Component{
                     <input type="text" className="search-bar" value={this.state.keyword} onChange={this.handleInputChange}/>
                     <button type="submit" className="btn-search">Search</button>
                 </form>
+
+                
+
                 <div>
                     {this.state.music.map(item => (
                         <Playlist key={item.id} 
