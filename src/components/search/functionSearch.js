@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Playlist from "../playlist";
-import RecomMusic from "../recomended";
+import RecomMusic from "../createplaylist";
 
 function FuncSearch({token}) {
 
@@ -31,7 +31,7 @@ function FuncSearch({token}) {
                 <button type="submit" className="btn-search">Search</button>
             </form>
             <div className="list-music">
-                <RecomMusic music={selectedTrack} />
+                <RecomMusic music={selectedTrack} token={token}  />
             </div>
             <div>
                 <Playlist music={music} track={selectedTrack} setSelectedTrack={setSelectedTrack} />

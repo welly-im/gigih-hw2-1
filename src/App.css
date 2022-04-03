@@ -19,4 +19,36 @@
     margin: 20px 0 0 0;
 }
 
+.btn-login{
+    color: #fff;
+    padding: 5px 20px;
+    background: #209610;
+    border-radius: 5px;
+    box-shadow: -1px 2px 1px 0px #eee;
+    text-shadow: none;
+}
+
+.btn-login:hover {
+    cursor: pointer;
+    background: #025e07;
+    box-shadow: 1px 2px 1px 0px #eee;
+    transition: all 0.3s;
+}
+
+.btn-logout{
+    color: #fff;
+    padding: 5px 20px;
+    background: #961010;
+    border-radius: 5px;
+    box-shadow: -1px 2px 1px 0px #eee;
+    text-shadow: none;
+}
+
+.btn-logout:hover {
+    cursor: pointer;
+    background: #5e0202;
+    box-shadow: 1px 2px 1px 0px #eee;
+    transition: all 0.3s;
+}
+
 

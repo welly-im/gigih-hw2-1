@@ -1,0 +1,96 @@
+a{
+    text-decoration: none;
+}
+
+#textarea{
+	resize: none;
+	margin: 0  0 20px 10px;
+}
+
+#title{
+	margin: 0  0 20px 10px;
+}
+
+.create-playlist{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.form-input{    
+    width: 30%;
+    min-width: 25%;
+}
+
+.selected-music{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.music-card{
+    width: 120px;
+    height: 185px;
+    padding: 15px;
+    display: block;
+    background-color: #333;
+    border-radius: 5px;
+    flex-direction: column;
+    margin: 10px 15px;
+    color: #fff;
+}
+.music-card:hover{
+    background-color: rgb(70, 70, 70);
+    transition: all 0.5s;
+}
+
+.music-title{
+    margin: 0;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.music-artist{
+    margin: 5px 0 0 0;
+    font-size: 12px;
+}
+
+.form-playlist{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.title-input{
+    width: 90%;
+    height: 30px;
+    margin: 0px 10px;
+}
+
+.desc-input{
+    height: 180px;
+    width: 90%;
+    margin: 0px 10px;
+}
+
+.btn-submit{
+    margin: 20px 10px;
+    width: 90%;
+    height: 40px;
+    background: #105996;
+    color: #fff;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    box-shadow: 1px 3px 2px #eee;
+    text-shadow: none;
+}
+
+.btn-submit:hover {
+    cursor: pointer;
+    background: #02365e;
+    box-shadow: 1px 5px 5px #eee;
+    transition: all 0.3s;
+}
