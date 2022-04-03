@@ -1,10 +1,37 @@
 import './index.css';
 
 function RecomMusic({music, token}) {
-    
+
     const handlePost = async (e) => {
+
         e.preventDefault();
-        const track = await fetch(`https://api.spotify.com/v1/playlists/2X9oMOlktC9ei95Br6fpS9/tracks`, {
+
+        //get user id from spotify api
+        const userId = await fetch(`https://api.spotify.com/v1/me`, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+        .then(res => res.json())
+        .then(data => data.id)
+
+        //create playlist in spotify api
+        const playlistId = await fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: e.target.title.value,
+                description: e.target.description.value,
+                public: false
+            })
+        })
+        .then(res => res.json())
+        .then(data => data.id)
+
+        const track = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`, {
             method: "POST",
             headers: {
                 Authorization: `Bearer ${token}`,
