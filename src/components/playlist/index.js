@@ -3,21 +3,19 @@ import './index.css';
 function Playlist({music, track, setSelectedTrack}) {
 
     const handleClickSelectSong = (e) => {
-        const id = e.target.getAttribute('data-uri');
-        const index = track.findIndex((song) => song.uri === id);
-        if (index === -1) {
-            const getDataSongFromId = music.filter((song) => song.uri === id);
-            setSelectedTrack([...track, getDataSongFromId[0]]);
+        const id = e.target.getAttribute('data-uri'); //get the id of the song
+        const index = track.findIndex((song) => song.uri === id); //find the index of the song
+        if (index === -1) { //if the song is not in the array
+            const getDataSongFromId = music.filter((song) => song.uri === id); //get the song from the id
+            setSelectedTrack([...track, getDataSongFromId[0]]); //add the song to the array
             //make selected button to deselect button by id
             e.target.innerText = 'Deselect'; 
             e.target.className = 'btn-deselect';
         } else {
-            setSelectedTrack(track.filter(song => song.uri !== id)); //fungsi menghapus data yang sama
+            setSelectedTrack(track.filter(song => song.uri !== id)); //remove the song from the array
             e.target.innerText = 'Select'; 
             e.target.className = 'btn-select';
         }
-
-
     };
 
 

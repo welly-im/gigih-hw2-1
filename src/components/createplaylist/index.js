@@ -25,7 +25,8 @@ function RecomMusic({music, token}) {
             body: JSON.stringify({
                 name: e.target.title.value,
                 description: e.target.description.value,
-                public: false
+                public: false,
+                collaborative: false
             })
         })
         .then(res => res.json())

@@ -1,6 +1,7 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import { FuncSearch } from './components/search/functionSearch';
+import { useDispatch} from 'react-redux';
 
 function App() {
     const CLIENT_ID = "25df50d26bab45709de59c1d44a5a4e1"
@@ -10,6 +11,14 @@ function App() {
     const SCOPE = "playlist-modify-private"
 
     const [token, setToken] = useState("")
+
+    const dispatch = useDispatch();
+
+    const handleLogin = () => {
+        const url = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`
+        window.location.href = url
+    }
+
 
     useEffect(() => {
         const hash = window.location.hash
@@ -24,25 +33,38 @@ function App() {
 
         setToken(token)
 
-    }, [])
+        dispatch({
+            type: 'LOGIN',
+            payload: token
+        })
+    }, [dispatch])
 
     const logout = () => {
+        dispatch({
+            type: "LOGOUT"
+        })
         setToken("")
         window.localStorage.removeItem("token")
     }
+
 
     return (
         <div className="App">
             <header className="App-header">
                 <h1>Spotify React</h1>
                 {!token ?
-                    <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`} 
-                    className='btn-login'>
-                        Login</a>
-                    : <button onClick={logout} className='btn-logout'>Logout</button>}
+                    <button className='btn-login'onClick={handleLogin}>
+                            Login</button>
+                    : 
+                    <>
+                        <button onClick={logout} className='btn-logout'>Logout</button>
+                        <p> token now : {token}</p>
+                    </>
+                    
+                    }
             </header>
             <div className='history-music'>
-            <FuncSearch token={token} />
+                <FuncSearch token={token} />
             </div>
         </div>
     );
