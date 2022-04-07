@@ -1,8 +1,13 @@
 import { useState } from "react";
 import Playlist from "../playlist";
 import RecomMusic from "../createplaylist";
+import { useDispatch} from 'react-redux';
 
-function FuncSearch({token}) {
+function FuncSearch() {
+
+    const dispatch = useDispatch();
+    const token = localStorage.getItem("token")
+
 
     const [music, setMusic] = useState([]);
     const [keyword, setKeyword] = useState("");
@@ -22,21 +27,30 @@ function FuncSearch({token}) {
     const handleInputChange = (e) => {
         setKeyword(e.target.value);
     };
+
+    const logout = () => {
+        dispatch({
+            type: "LOGOUT"
+        })
+        window.localStorage.removeItem("token")
+    }
     
 
     return (
-        <div>
-            <form onSubmit={handleSearch}>
-                <input type="text" className="search-bar" value={keyword} onChange={handleInputChange} />
-                <button type="submit" className="btn-search">Search</button>
-            </form>
-            <div className="list-music">
-                <RecomMusic music={selectedTrack} token={token}  />
-            </div>
             <div>
-                <Playlist music={music} track={selectedTrack} setSelectedTrack={setSelectedTrack} />
+                <button onClick={logout} className='btn-logout'>Logout</button>
+                                <p> Create Playlist</p>
+                <form onSubmit={handleSearch}>
+                    <input type="text" className="search-bar" value={keyword} onChange={handleInputChange} />
+                    <button type="submit" className="btn-search">Search</button>
+                </form>
+                <div className="list-music">
+                    <RecomMusic music={selectedTrack} token={token}  />
+                </div>
+                <div>
+                    <Playlist music={music} track={selectedTrack} setSelectedTrack={setSelectedTrack} />
+                </div>
             </div>
-        </div>
     );
 }
 
