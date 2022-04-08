@@ -1,8 +1,6 @@
 import './login.css';
-import { useEffect } from 'react';
+import { useEffect, React} from 'react';
 import { useDispatch} from 'react-redux';
-import {
-    BrowserRouter as Router } from "react-router-dom";
 
 function Login() {
     const CLIENT_ID = "25df50d26bab45709de59c1d44a5a4e1"
@@ -25,7 +23,7 @@ function Login() {
         if (hash) {
             token = hash.split("=")[1]
             window.localStorage.setItem("token", token)
-            window.location.hash = ""
+            window.location.hash = "/create-playlist"
         }
         dispatch({
             type: 'LOGIN',
@@ -36,7 +34,6 @@ function Login() {
     
 
     return (
-        <Router>
             <div className="App">
             <header className="App-header">
                 <h1>Spotify React</h1>
@@ -44,7 +41,6 @@ function Login() {
                 <br/>
             </header>
         </div>
-        </Router>
        
     );
 

@@ -1,4 +1,5 @@
 import './App.css';
+import React from "react";
 import {
     BrowserRouter as Router,
     Switch,
@@ -7,6 +8,8 @@ import {
     Link } from "react-router-dom";
 import { FuncSearch } from './components/search/functionSearch';
 import Login from './components/login/login';
+import propTypes from 'prop-types';
+
 
 function App() {
     return (
@@ -23,13 +26,14 @@ function App() {
                 </Route>
             </Switch>
         </Router>
-       
     );
 
 }
 
 
 export default App;
+
+
 
 function PrivateRoute({ children, ...rest }) {
     return (
@@ -45,3 +49,8 @@ function PrivateRoute({ children, ...rest }) {
       />
     );
 }
+
+PrivateRoute.propTypes = {
+    children: propTypes.element.isRequired
+};
+
