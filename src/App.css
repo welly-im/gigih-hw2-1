@@ -1,6 +1,9 @@
 .App{
     padding: 25px;
 }
+
+/* using css flexbox */
+
 .Playlist {
 	padding: 25px 0 0 0;
 	width: 85%;

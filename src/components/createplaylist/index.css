@@ -24,10 +24,13 @@ a{
     min-width: 25%;
 }
 
+/* use grid  */
 .selected-music{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
+    display: grid;
+    grid-gap: 5px;
+    grid-auto-flow: row;
+    grid-template-columns: 186px 186px 186px 186px;
+    grid-template-columns: repeat(4, 1fr);
 }
 
 .music-card{
