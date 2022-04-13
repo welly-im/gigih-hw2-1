@@ -1,7 +1,18 @@
 import './index.css';
 import React from "react";
+import PropTypes from 'prop-types';
 
-function Playlist({music, track, setSelectedTrack}) {
+
+
+function Playlist({ music, track, setSelectedTrack }) {
+
+    
+
+    Playlist.PropTypes = {
+        music: PropTypes.array.isRequired,
+        track: PropTypes.array.isRequired,
+        setSelectedTrack: PropTypes.func.isRequired
+    }
 
     const handleClickSelectSong = (e) => {
         const id = e.target.getAttribute('data-uri'); //get the id of the song
@@ -46,8 +57,6 @@ function Playlist({music, track, setSelectedTrack}) {
                 ))
             }
         </>
-        
-        
     );
 }
 

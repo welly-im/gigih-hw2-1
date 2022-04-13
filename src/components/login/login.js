@@ -14,6 +14,7 @@ function Login() {
     const handleLogin = () => {
         const url = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`
         window.location.href = url
+        
     }
 
     useEffect(() => {
@@ -21,9 +22,9 @@ function Login() {
         let token = window.localStorage.getItem("token")
 
         if (hash) {
-            token = hash.split("=")[1]
+            token = hash.substring(14)
+            console.log(token)
             window.localStorage.setItem("token", token)
-            window.location.hash = "/create-playlist"
         }
         dispatch({
             type: 'LOGIN',
