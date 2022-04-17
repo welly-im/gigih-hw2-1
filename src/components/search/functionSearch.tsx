@@ -1,19 +1,14 @@
-import {React, useState } from "react";
+import React, { useState } from "react";
 import Playlist from "../playlist";
 import RecomMusic from "../createplaylist";
-import { useDispatch} from 'react-redux';
 
 function FuncSearch() {
-
-    const dispatch = useDispatch();
-    const token = localStorage.getItem("token")
-
-
+    const token = localStorage.getItem("token");
     const [music, setMusic] = useState([]);
     const [keyword, setKeyword] = useState("");
     const [selectedTrack, setSelectedTrack] = useState([]);
 
-    const handleSearch = async (e) => {
+    const handleSearch = async (e: { preventDefault: () => void; }) => {
         e.preventDefault();
         const music = await fetch(`https://api.spotify.com/v1/search?q=${keyword}&type=track&limit=15`, {
             headers: {
@@ -23,23 +18,13 @@ function FuncSearch() {
         setMusic(musicJson.tracks.items);
     };
 
-
-    const handleInputChange = (e) => {
+    const handleInputChange = (e: { target: { value: string }; }) => {
         setKeyword(e.target.value);
     };
 
-    const logout = () => {
-        dispatch({
-            type: "LOGOUT"
-        })
-        window.localStorage.removeItem("token")
-    }
-    
-
     return (
             <div>
-                <button onClick={logout} className='btn-logout'>Logout</button>
-                                <p> Create Playlist</p>
+                <p> Create Playlist</p>
                 <form onSubmit={handleSearch}>
                     <input type="text" className="search-bar" value={keyword} onChange={handleInputChange} />
                     <button type="submit" className="btn-search">Search</button>
@@ -54,4 +39,4 @@ function FuncSearch() {
     );
 }
 
-export { FuncSearch };
+export default FuncSearch;

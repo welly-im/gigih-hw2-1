@@ -1,6 +1,8 @@
 import './login.css';
-import { useEffect, React} from 'react';
-import { useDispatch} from 'react-redux';
+import React, { useState, useEffect} from 'react';
+import { useDispatch } from 'react-redux';  
+import hero from '../../img/hero.png';
+import FuncSearch from '../search/functionSearch';
 
 function Login() {
     const CLIENT_ID = "25df50d26bab45709de59c1d44a5a4e1"
@@ -9,40 +11,56 @@ function Login() {
     const RESPONSE_TYPE = "token"
     const SCOPE = "playlist-modify-private"
 
-    const dispatch = useDispatch();
+    const [accessToken, setAccessToken] = useState('')
 
+    const dispatch = useDispatch();
+    
     const handleLogin = () => {
+        //create function to clear cache 
+        window.localStorage.clear()
+        //create function to get access token
         const url = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`
         window.location.href = url
-        
     }
 
     useEffect(() => {
         const hash = window.location.hash
         let token = window.localStorage.getItem("token")
-
-        if (hash) {
-            token = hash.substring(14)
-            console.log(token)
+        if(hash && !token) {
+            token = hash.split("=")[1]
             window.localStorage.setItem("token", token)
+            setAccessToken(token)
+            dispatch({type: "SET_TOKEN", payload: token})
         }
-        dispatch({
-            type: 'LOGIN',
-            payload: token
-        })
-    }, [dispatch])
+        window.location.hash = ""
+    }, [])
 
-    
 
     return (
             <div className="App">
             <header className="App-header">
-                <h1>Spotify React</h1>
-                <button onClick={handleLogin} className="btn-login">Login</button>
-                <br/>
+                { accessToken ? (
+                 <FuncSearch/>
+                ) : (
+                    <div className='container'>
+                    <div className="headcontent">
+                          Bebaskan Dirimu Dengan Musik
+                        <div className="content">
+                            <em>Nikmati musik bebas iklan, playback offline, dan banyak lagi. Batalkan kapan saja.</em> 
+                        </div>
+                        <div className="button">
+                          <button onClick={handleLogin} className="btn-login">Login</button>
+                        </div>
+                    </div>
+                    
+                    <div className="marsh">
+                        <img src={hero} alt="Hero Image"/>
+                    </div>
+                </div>
+                 
+                )}
             </header>
         </div>
-       
     );
 
 }

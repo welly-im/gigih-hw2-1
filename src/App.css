@@ -2,6 +2,62 @@
     padding: 25px;
 }
 
+nav{
+    background-color: black;
+    padding: 30px 20px;
+    height: 30px;
+}
+ul{
+    margin: 0px;
+    list-style: none;
+    display: inline;
+}
+li{
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+    float: left;
+    margin-right: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.brand{
+    margin-right: 72%;
+    margin-left: 30px;
+    font-size: 27px;
+    width: 120px;
+    color: chartreuse;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+li:hover{
+color: chartreuse;
+cursor: pointer;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 3% 0;
+}
+
+.marsh{
+    width: 30%;
+}
+.headcontent{
+    width: 45%;
+    font-size: 60px;
+    margin: 20px 0;
+    line-height: 1.1;
+    color: white;
+    font-weight: bolder;
+}
+.content{
+    font-size: 20px;
+    margin: 30px;
+    color: white;
+    font-weight: lighter;
+}
+
 /* using css flexbox */
 
 .Playlist {
@@ -22,36 +78,29 @@
     margin: 20px 0 0 0;
 }
 
-.btn-login{
-    color: #fff;
-    padding: 5px 20px;
-    background: #209610;
-    border-radius: 5px;
-    box-shadow: -1px 2px 1px 0px #eee;
-    text-shadow: none;
-}
-
 .btn-login:hover {
     cursor: pointer;
-    background: #025e07;
-    box-shadow: 1px 2px 1px 0px #eee;
-    transition: all 0.3s;
-}
-
-.btn-logout{
-    color: #fff;
-    padding: 5px 20px;
-    background: #961010;
-    border-radius: 5px;
-    box-shadow: -1px 2px 1px 0px #eee;
-    text-shadow: none;
+    background-color: rgb(255, 255, 255);
+    color: rgb(10, 10, 10);
 }
 
 .btn-logout:hover {
     cursor: pointer;
-    background: #5e0202;
-    box-shadow: 1px 2px 1px 0px #eee;
-    transition: all 0.3s;
+    background-color: rgb(255, 255, 255);
+    color: rgb(10, 10, 10);
 }
 
+.btn-logout{
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 10 px;
+    display: block;
+    background: transparent;
+    width: 100px;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+}
 

@@ -1,46 +1,38 @@
 import './App.css';
-import React from "react";
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route} from "react-router-dom";
-import { FuncSearch } from './components/search/functionSearch';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
+import React  from "react";
 import Login from './components/login/login';
+import logo from './img/logo.png';
+import { useDispatch } from 'react-redux';
 
 function App() {
+
+    const dispatch = useDispatch();
+    
+    const logout = () => {
+        dispatch({
+            type: "LOGOUT"
+        })
+        window.localStorage.removeItem("token")
+    }
+    
     return (
       <>
-        <Box sx={{ flexGrow: 1 }}>
-          <AppBar position="static">
-            <Toolbar>
-              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                Spotify React
-              </Typography>
-              <Button color="inherit" href='/login'>Login</Button>
-              <Button color="inherit" href='/create-playlist'>Create playlist</Button>
-              <Button color="inherit" href='/'>Logout</Button>
-            </Toolbar>
-          </AppBar>
-        </Box>
-        <Router>
-            <Switch>
-                <Route path="/create-playlist">
-                    <FuncSearch />
-
- </Route> 
-                <Route path="/login">
-                  <Login />
-                </Route>
-                <Route path="/">
-                    <h1> HOME PAGE </h1>
-                </Route>
-            </Switch>
-        </Router>
+      <nav className="navbar">
+        <ul>
+            <li className="brand"><img src={logo} alt="Logo Image"/></li>
+        </ul>
+        <ul>{
+            localStorage.getItem("token") ? (
+                <></>
+            ) : (
+                <li><button onClick={logout} className="btn-logout">Logout</button>
+                </li>
+        )
+        }
+        </ul>
+        
+      </nav>
+              <Login />
       </>
     );
 
@@ -48,18 +40,3 @@ function App() {
 
 
 export default App;
-
-// function PrivateRoute({ children, ...rest }) {
-//     return (
-//       <Route
-//         {...rest}
-//         render={() => {
-//           return localStorage.getItem("token") ? (
-//             children
-//           ) : (
-//             <Redirect to="/" />
-//           );
-//         }}
-//       />
-//     );
-// }

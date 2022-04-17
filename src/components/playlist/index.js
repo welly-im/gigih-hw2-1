@@ -3,10 +3,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 
 
-
 function Playlist({ music, track, setSelectedTrack }) {
-
-    
 
     Playlist.PropTypes = {
         music: PropTypes.array.isRequired,
