@@ -52,7 +52,6 @@ function Login() {
                           <button onClick={handleLogin} className="btn-login">Login</button>
                         </div>
                     </div>
-                    
                     <div className="marsh">
                         <img src={hero} alt="Hero Image"/>
                     </div>
