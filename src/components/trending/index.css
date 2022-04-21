@@ -1,0 +1,79 @@
+tbody{
+	width: 100%;
+}
+
+.Playlist-component {
+	width: 100%;
+	display: flex;
+	margin: 0px auto;
+	align-items: center;
+	justify-content: center;
+}
+
+.Playlist-component:hover {
+	background-color: #2e2e2e;
+	border-radius: 5px;
+	transition: all 0.5s;
+}
+
+.list-music{
+	margin: 0 auto;
+    width: 100%;
+    padding: 5px 10px;
+}
+
+.Image {
+	width: 50px;
+    height: 50px;
+    display: block;
+}
+
+
+.Playlist-info {
+	width: 100%;
+	padding-left: 20px;
+}
+
+.title-song {
+	font-size: 20px;
+	margin: 0 0 5px 0;
+	font-weight: bold;
+	line-height: 1;
+}
+
+.artist {
+	margin: 0 0 20px 0;
+	font-weight: 500;
+	font-size: 12px;
+}
+
+.btn-select {
+	font-family: verdana;
+	color: #fcfcfc !important;
+	font-size: 12px;
+	text-shadow: 0px 0px 0px #6e6e6e;
+	box-shadow: 0px 0px 0px #c3e7ff;
+	padding: 8px 23px;
+	border-radius: 5px;
+	border: 0px solid #000000;
+	background: #4dc455;
+}
+.btn-select:hover {
+	cursor: pointer;
+}
+
+.btn-deselect{
+	font-family: verdana;
+	color: #fcfcfc !important;
+	font-size: 12px;
+	text-shadow: 0px 0px 0px #6e6e6e;
+	box-shadow: 0px 0px 0px #c3e7ff;
+	padding: 8px 23px;
+	border-radius: 5px;
+	border: 0px solid #000000;
+	background: #c44d4d;
+}
+
+.btn-deselect:hover {
+	cursor: pointer;
+}

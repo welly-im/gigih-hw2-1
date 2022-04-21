@@ -16,8 +16,6 @@ function Login() {
     const dispatch = useDispatch();
     
     const handleLogin = () => {
-        //create function to clear cache 
-        window.localStorage.clear()
         //create function to get access token
         const url = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`
         window.location.href = url
@@ -26,11 +24,11 @@ function Login() {
     useEffect(() => {
         const hash = window.location.hash
         let token = window.localStorage.getItem("token")
-        if(hash && !token) {
+        if(hash) {
             token = hash.split("=")[1]
             window.localStorage.setItem("token", token)
             setAccessToken(token)
-            dispatch({type: "SET_TOKEN", payload: token})
+            dispatch({type: "LOGIN", payload: token})
         }
         window.location.hash = ""
     }, [])

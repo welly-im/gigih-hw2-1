@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Playlist from "../playlist";
 import RecomMusic from "../createplaylist";
+import Trending from "../trending";
 
 function FuncSearch() {
     const token = localStorage.getItem("token");
@@ -16,11 +17,14 @@ function FuncSearch() {
                 });
         const musicJson = await music.json();
         setMusic(musicJson.tracks.items);
+        
     };
 
     const handleInputChange = (e: { target: { value: string }; }) => {
         setKeyword(e.target.value);
     };
+
+    console.log(keyword);
 
     return (
             <div>
@@ -33,7 +37,15 @@ function FuncSearch() {
                     <RecomMusic music={selectedTrack} token={token}  />
                 </div>
                 <div>
-                    <Playlist music={music} track={selectedTrack} setSelectedTrack={setSelectedTrack} />
+
+                    {
+                        music.length < 1 ?(
+                            <Trending />
+                        ) : (
+                            <Playlist music={music} track={selectedTrack} setSelectedTrack={setSelectedTrack} />
+                        )
+                    }
+                    
                 </div>
             </div>
     );

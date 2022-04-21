@@ -1,8 +1,8 @@
 import './App.css';
-import React  from "react";
+import React from "react";
 import Login from './components/login/login';
 import logo from './img/logo.png';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 function App() {
 
@@ -10,11 +10,14 @@ function App() {
     
     const logout = () => {
         dispatch({
-            type: "LOGOUT"
+            type: "LOGOUT", 
+            payload: ""
         })
         window.localStorage.removeItem("token")
+        window.location.reload()
     }
-    
+    const token = useSelector(state => state.token.auth.token)
+
     return (
       <>
       <nav className="navbar">
@@ -22,10 +25,11 @@ function App() {
             <li className="brand"><img src={logo} alt="Logo Image"/></li>
         </ul>
         <ul>{
-            localStorage.getItem("token") ? (
+            !token ? (
                 <></>
             ) : (
-                <li><button onClick={logout} className="btn-logout">Logout</button>
+                <li>
+                    <button onClick={logout} className="btn-logout">Logout</button>
                 </li>
         )
         }
