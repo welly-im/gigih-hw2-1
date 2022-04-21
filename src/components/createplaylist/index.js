@@ -1,51 +1,65 @@
 import './index.css';
-import React from "react";
+import React, {useState} from "react";
+import { Alert } from '@mui/material';
 
 function RecomMusic({music, token}) {
+
+    const [openAlert, setOpenAlert] = useState(false);
 
     const handlePost = async (e) => {
 
         e.preventDefault();
 
-        //get user id from spotify api
-        const userId = await fetch(`https://api.spotify.com/v1/me`, {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        })
-        .then(res => res.json())
-        .then(data => data.id)
+        console.log(token)
 
-        //create playlist in spotify api
-        const playlistId = await fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${token}`,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                name: e.target.title.value,
-                description: e.target.description.value,
-                public: false,
-                collaborative: false
-            })
-        })
-        .then(res => res.json())
-        .then(data => data.id)
+        // //get user id from spotify api
+        // const userId = await fetch(`https://api.spotify.com/v1/me`, {
+        //     headers: {
+        //         'Authorization': `Bearer ${token}`
+        //     }
+        // })
+        // .then(res => res.json())
+        // .then(data => data.id)
 
-        const track = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`, {
-            method: "POST",
-            headers: {
-                Authorization: `Bearer ${token}`,
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                uris:  music.map(elem => elem.uri),
-                position: 0
-            })
-        });
-        const trackJson = await track.json();
-        console.log(trackJson);
+        // //create playlist in spotify api
+        // const playlistId = await fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
+        //     method: 'POST',
+        //     headers: {
+        //         'Authorization': `Bearer ${token}`,
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify({
+        //         name: e.target.title.value,
+        //         description: e.target.description.value,
+        //         public: false,
+        //         collaborative: false
+        //     })
+        // })
+        // .then(res => res.json())
+        // .then(data => data.id)
+
+        // const track = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`, {
+        //     method: "POST",
+        //     headers: {
+        //         Authorization: `Bearer ${token}`,
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify({
+        //         uris:  music.map(elem => elem.uri),
+        //         position: 0
+        //     })
+        // });
+        // const trackJson = await track.json();
+        // console.log(trackJson);
+
+        //alert from material ui 
+
+        setOpenAlert(true);
+
+        setTimeout(() => {
+            setOpenAlert(false);
+        }, 3000);
+
     };
 
     return(
@@ -53,6 +67,17 @@ function RecomMusic({music, token}) {
         {
             music.length > 0 ?
                 <div className='create-playlist'>
+                {
+                        openAlert ?  (
+                            <div className='alert'>
+                            <Alert severity="success" open={openAlert} onClose={() => setOpenAlert(false)}>
+                                Playlist created!
+                            </Alert>
+                        </div>
+                        ) : (
+                            <></>
+                        )
+                    }
                     <div className='form-input'>
                         <p>Create Playlist</p>
                         <form onSubmit={handlePost} className='form-playlist'>

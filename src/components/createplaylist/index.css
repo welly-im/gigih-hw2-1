@@ -9,33 +9,57 @@ a{
 
 #title{
 	margin: 0  0 20px 10px;
+    
+}
+
+label{
+    font-weight: 600;
+    margin: 5px 10px;
+
+}
+.alert{
+    width: 100%;
 }
 
 .create-playlist{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    width: 100%;
+    max-width: 380px;
+    background-color: #0f0f0f;
+    box-shadow: 0px 6px 14px 5px rgba(255,255,255,0.75);
+    -webkit-box-shadow: 0px 6px 14px 5px rgba(255,255,255,0.75);
+    -moz-box-shadow: 0px 6px 14px 5px rgba(255,255,255,0.75);
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
 }
 
 .form-input{    
-    width: 30%;
+    width: 100%;
     min-width: 25%;
 }
+
+.form-input p{    
+    margin: 0; 
+    font-size: 18px;
+    font-weight: 600;
+}
+
 
 /* use grid  */
 .selected-music{
     display: grid;
     grid-gap: 5px;
     grid-auto-flow: row;
-    grid-template-columns: 186px 186px 186px 186px;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 176px 176px;
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .music-card{
     width: 120px;
-    height: 185px;
+    height: 195px;
     padding: 15px;
     display: block;
     background-color: #333;
@@ -71,12 +95,26 @@ a{
     width: 90%;
     height: 30px;
     margin: 0px 10px;
+    background-color : #383838; 
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    padding: 0 10px;
+    
+
 }
 
 .desc-input{
     height: 180px;
     width: 90%;
     margin: 0px 10px;
+    background-color : #383838; 
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    resize: none;
 }
 
 .btn-submit{

@@ -6,7 +6,7 @@ import FuncSearch from '../search/functionSearch';
 
 function Login() {
     const CLIENT_ID = "25df50d26bab45709de59c1d44a5a4e1"
-    const REDIRECT_URI = "https://wetify.vercel.app/"
+    const REDIRECT_URI = "http://localhost:3000/"
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
     const RESPONSE_TYPE = "token"
     const SCOPE = "playlist-modify-private"

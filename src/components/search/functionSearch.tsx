@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Playlist from "../playlist";
 import RecomMusic from "../createplaylist";
 import Trending from "../trending";
+import './index.css'
 
 function FuncSearch() {
     const token = localStorage.getItem("token");
@@ -24,28 +25,33 @@ function FuncSearch() {
         setKeyword(e.target.value);
     };
 
-    console.log(keyword);
-
     return (
             <div>
-                <p> Create Playlist</p>
-                <form onSubmit={handleSearch}>
-                    <input type="text" className="search-bar" value={keyword} onChange={handleInputChange} />
-                    <button type="submit" className="btn-search">Search</button>
-                </form>
-                <div className="list-music">
-                    <RecomMusic music={selectedTrack} token={token}  />
+                <div className="search">
+                    <div className="search-component">
+                    <p> Search Music </p>
+                        <form onSubmit={handleSearch}>
+                            <input type="text" className="search-bar" value={keyword} onChange={handleInputChange} />
+                            <button type="submit" className="btn-search">Search</button>
+                        </form>
+                    </div>
                 </div>
-                <div>
-
-                    {
-                        music.length < 1 ?(
-                            <Trending />
-                        ) : (
-                            <Playlist music={music} track={selectedTrack} setSelectedTrack={setSelectedTrack} />
-                        )
-                    }
-                    
+                <div className={
+                    selectedTrack.length > 0 ? "openflex" : "closeflex"
+                }>
+                    <div className="selected-track">
+                        <RecomMusic music={selectedTrack} token={token}  />
+                    </div>
+                    <div>
+                        {
+                            music.length < 1 ?(
+                                <Trending />
+                            ) : (
+                                <Playlist music={music} track={selectedTrack} setSelectedTrack={setSelectedTrack} />
+                            )
+                        }
+                        
+                    </div>
                 </div>
             </div>
     );
