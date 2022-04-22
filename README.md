@@ -22,9 +22,10 @@ and to run the program on the local computer
 `npm start`
 
 # How to use the app
-Make sure you are logged in to your spotify account,
-Then you can visit the following address
+- Make sure you are logged in to your spotify account,
+- Then you can visit the following address
 https://wetify.vercel.app/
-For now, the email that can be used is `gigih2frontend@gmail.com`.
-If you can't access this application, it means I haven't registered your email, you can comment on this repo, then I will register your email.
-After that you can use this application properly. Enjoy !! 
+
+- For now, the email that can be used is `gigih2frontend@gmail.com`.
+- If you can't access this application, it means I haven't registered your email, you can comment on this repo, then I will register your email.
+- After that you can use this application properly. Enjoy !! 
