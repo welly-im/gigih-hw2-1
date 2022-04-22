@@ -1,6 +1,6 @@
 # Name Project 
 
-##Wetify 
+## Wetify 
 
 # Description
 Wetify is a web-based application that helps users to create spotify playlists easily and using a fresh look.
