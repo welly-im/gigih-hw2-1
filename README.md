@@ -15,7 +15,7 @@ Wetify is a web-based application that helps users to create spotify playlists e
 # Additional features
 Users get information about newly released songs
 
-# Installation local 
+# Local Installation
 Make sure you have installed all components using
 `npm install`
 and to run the program on the local computer
